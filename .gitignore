@@ -10,8 +10,7 @@
 *.userosscache
 *.sln.docstates
 
-
-appsettings.Development.json
+# Ignore appsettings.json
 appsettings.json
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -423,3 +422,5 @@ yarn-error.log
 https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-3.1
 *.pfx
 *.snk
+/src/Restaurants.API/appsettings.json
+/src/Restaurants.API/appsettings.Development.json

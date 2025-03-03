@@ -18,8 +18,10 @@ jobs:
      - name: Setup .NET Core SDK
        uses: actions/setup-dotnet@v4.3.0
        with: 
-           dotnet-version: 8.0.x
-           
+           dotnet-version: '8.0.x || 9.0.x'
+
+     - name: Set up connection string for testing
+       run: echo "ConnectionStrings__RestaurantsDb=${{ secrets.DB_CONNECTION }}" >> $GITHUB_ENV     
      - name: Restore dependencies
        run: dotnet restore
      - name: Build

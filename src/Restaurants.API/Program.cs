@@ -50,6 +50,7 @@ try
 
     app.MapControllers();
 
+    //run the program
     app.Run();
 }
 
@@ -63,16 +64,3 @@ finally
 }
 
 public partial class Program { }
-//TODO: REMOVE
-//Admin
-//{
-//    "email": "Admin@Test.com",
-//  "password": "Password1!"
-//}
-//User
-//{
-//    "email" : "Owner@MainOwner.com",
-//    "password" : "Password1!"
-//}
-
-//04c32d52-8c9f-4e3d-8baa-409fa2b4962c 

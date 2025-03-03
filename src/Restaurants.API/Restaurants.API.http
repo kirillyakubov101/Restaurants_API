@@ -1,0 +1,85 @@
+@Restaurants.API_HostAddress = https://localhost:7090
+@Token = CfDJ8Avkq4B2K_JAmi2dlNxgNZEu90XhMHTFF-ju6svVmSlSskxfKf4UUVmgZXRFrgJh-ZB8KMH9OyV-Ze8MTPuL9XEF74KYGgqwFH4QkE2lEstCJrO-B-IbFsSg6G7TXxP8xS_QfxS-dxD_j_E1rjgNGiKxV9slqhzxrNmUhTbrolw9nZRM23XF3cTPCaNururL_YcGq1MQixvykrhV_ARdYGJ8aDP3v4e-cNsbn8stZV957rlKiPgWv6D1Rdbnyx1y9nEsZFBej4kuakgMkMI6ScUViBbXcpR5GgR4EeiDV-4dUfBF-EvlC6cFOYTMSmmiv6lF5fxkTjT29C8Exm6zufaH36nzxODwXaMH8SFwS_Jkg5b6p4t4d9GflBWEwPdzZMsho3GaFb9Gt9dL6x05yjwEMLPwSAsw_O3DWuQwOCn1WNAQWVtYUzmH7cqqB2pIIqp-KCj6YlH_WX1-mHi9gbsQ_3M2XwNGY_digmNI_yDSht-7LcT8EuLwVZ8SJwQ5gwsPj7UoLmvO1Op9UhuPLH3wrYUDP6Bv2Z3_9m2stujPqkC2xx30tDnapSt-8oQi-Mmm8Rhhdy9uxqGmnK5fcD42_bIQSoleM1lInQQjLHZwQjM4l2taChCjnXWclDQnR0NvlFajY_GXyGX9CH3hyOzFSM7yndEYZPEOTAQVBhw_WbmOHKhTFn6g5emuLQkjNXDDJLo5dCuZMRU_g0Ez21AdpIBsnNqQjQ43eVPuGg-I8yi61gqMLLcTwlxRbqVg1CPTuIfrcbTw1ChcuCsIVFCdNGO8M89d2ob7lz2ym4x1edt2dlmjczE5Gajk6gcqp1X5nJEMLLV11xWoOoDxPGyB6lolO3zOQLyl1xxcNU2rztG2e6_QANZvFSeWngAvnllI3DJ2N8hUsoD65Ku-EiU
+
+DELETE {{Restaurants.API_HostAddress}}/api/identity/deleteUser
+
+###
+
+POST {{Restaurants.API_HostAddress}}/api/identity/userRole
+Content-Type: application/json
+Authorization : Bearer {{Token}}
+{
+  //AssignUserRoleCommand
+}
+
+###
+
+POST {{Restaurants.API_HostAddress}}/api/identity/login
+Content-Type: application/json
+{
+  "email": "Owner@MainOwner.com",
+  "password": "Password1!",
+  "twoFactorCode": "string",
+  "twoFactorRecoveryCode": "string"
+}
+
+###
+
+GET {{Restaurants.API_HostAddress}}/api/restaurants?searchPhrase=NewRest&pageSize=5&pageNumber=1&sortBy=Name&sortDirection=Descending
+Authorization : Bearer {{Token}}
+###
+
+POST {{Restaurants.API_HostAddress}}/api/restaurants
+Content-Type: application/json
+Authorization : Bearer {{Token}}
+{
+  "name": "NewRest",
+  "description": "NewRest",
+  "category": "Indian",
+  "hasDelivery": true,
+  "contactEmail": "kdasd@dasd.com",
+  "contactNumber": "24322",
+  "city": "string",
+  "street": "string",
+  "postalCode": "33-445"
+}
+
+###
+
+
+DELETE {{Restaurants.API_HostAddress}}/api/restaurants/1111
+Authorization : Bearer {{Token}}
+###
+
+GET {{Restaurants.API_HostAddress}}/api/restaurants/18
+Authorization : Bearer {{Token}}
+###
+
+PATCH {{Restaurants.API_HostAddress}}/api/restaurants/18
+Content-Type: application/json
+Authorization : Bearer {{Token}}
+{
+   "Id" : 0,
+    "Name" : "Updated Restaurant Name By Owner!",
+    "Description" : "Very cool description",
+    "HasDelivery" : true
+}
+
+###
+
+POST {{Restaurants.API_HostAddress}}/api/restaurant/18/dishes
+Content-Type: application/json
+Authorization : Bearer {{Token}}
+{
+  "Name" : "Pizza",
+  "Description" : "big pizza alfredo",
+  "Price" : 12.95,
+  "KiloCalories" : 300
+}
+
+###
+
+
+GET {{Restaurants.API_HostAddress}}/api/restaurant/18/dishes
+Authorization : Bearer {{Token}}
+###
